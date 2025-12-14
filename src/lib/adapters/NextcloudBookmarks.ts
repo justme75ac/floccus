@@ -64,7 +64,7 @@ const LOCK_INTERVAL = 2 * 60 * 1000 // Set lock every two minutes while syncing
 export default class NextcloudBookmarksAdapter implements Adapter, BulkImportResource<typeof ItemLocation.SERVER>, LoadFolderChildrenResource<typeof ItemLocation.SERVER>, OrderFolderResource<typeof ItemLocation.SERVER>, ClickCountResource<typeof ItemLocation.SERVER> {
   private server: NextcloudBookmarksConfig
   private fetchQueue: PQueue<{ concurrency: 12 }>
-  private bookmarkLock: AsyncLock
+  private bookmarkLock: any
   private list: Bookmark<typeof ItemLocation.SERVER>[]
   private tree: Folder<typeof ItemLocation.SERVER>
   private canceled = false
